@@ -3,16 +3,16 @@ import sys
 import socket
 from datetime import datetime as dt
 #Define _ targate
-if len(syrgv)==2:
-	target = sockthostbyname(sys.argv[1])
+if len(sys.argv)==2:
+	target = socket.gethostbyname(sys.argv[1])
 else:
 	print ("Invalid Ammount of arguments: ")
 	print ("Syntax: python3 scanner.py <ip>")
 #Add a preety banner
 
 print ("-"*50)
-print ("Scanning Target " +targ)
-print ("Time Stated: " +str(dtow()))
+print ("Scanning Target " +target)
+print ("Time Stated: " +str(dt.now()))
 print ("-*50)
 
 try: 
@@ -22,11 +22,11 @@ try:
 		result = s.connect_ex((target,port))
 		#print ("cheaking port {}" rmat(port))
 		if result ==0:
-			print ("pt {} is open".format(port))
+			print ("port {} is open".format(port))
 		s.close()
 except keyboardInterrupt:
-	print ("\n Exiting Prog)
+	print ("\n Exiting Prog")
 	sys.exit()
 except socket.error:
-	print ("Couldn't connect tthe server.")
-	syexit()
+	print ("Couldn't connect to the server.")
+	sys.exit()
